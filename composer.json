@@ -1,0 +1,7 @@
+{
+    "name": "jmauerhan/demo",
+    "require": {
+        "php": "^7",
+        "robmorgan/phinx": "^0.9.2"
+    }
+}

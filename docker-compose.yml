@@ -1,0 +1,29 @@
+#docker-compose.yml
+
+version: '3'
+services:
+ api:
+   build:
+    context: .
+   volumes:
+    - .:/var/www
+   ports:
+     - "8080:80"
+   environment:
+     DB_USERNAME: postgres
+     DB_PASSWORD: postgres
+     DB_DATABASE: app
+     DB_HOST: db
+ db:
+   image: postgres:latest
+   ports:
+     - "5001:5432"
+   environment:
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: postgres
+     POSTGRES_DB: app
+   volumes:
+    - pgdata:/var/lib/postgresql/data
+volumes:
+ pgdata:
+   external: true
